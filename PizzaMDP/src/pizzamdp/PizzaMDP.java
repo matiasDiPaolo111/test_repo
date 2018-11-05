@@ -29,14 +29,36 @@ public class PizzaMDP {
         // TODO code application logic here
      
         
-          try {
-         TipoPizza tipoPizza = new TipoPizza();
+        SessionFactory sessionFactory =
+        new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        Session session = sessionFactory.openSession();
+       
+        try {
+       
+            
+            session.beginTransaction();
+    
          
-     
-            tipoPizza.update();
-        } catch (Exception ex) {
-            Logger.getLogger(PizzaMDP.class.getName()).log(Level.SEVERE, null, ex);
-        }
+         TipoPizza tipoPizza = (TipoPizza) session.get(TipoPizza.class, 1);
+         
+           if (tipoPizza != null){
+         
+         System.out.println(tipoPizza.getDescripcionPizza());
+         System.out.println(tipoPizza.getId_tipo_pizza());
+         System.out.println(tipoPizza.getNombre());
+         
+         }else{
+           System.out.println("No existe el elemento ");
+           }
         
-    }
+        
+        
+       
+        } catch (Exception e) {
+          System.out.print(e.toString());
+        } finally {
+        session.close();
+        }
+        }
+    
 }

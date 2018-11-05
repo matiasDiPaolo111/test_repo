@@ -11,7 +11,7 @@ import persistencia.PersistentObject;
  *
  * @author PC-MATT
  */
-public class TipoPizza extends PersistentObject {
+public class TipoPizza  {
     private int id_tipo_pizza;
     private String nombre;
     private String descripcionPizza;
