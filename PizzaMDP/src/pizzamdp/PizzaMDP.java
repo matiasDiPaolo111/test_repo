@@ -7,6 +7,8 @@ package pizzamdp;
 
 
 import entidades.TipoPizza;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -25,37 +27,16 @@ public class PizzaMDP {
      */
     public static void main(String[] args) throws HibernateException {
         // TODO code application logic here
+     
         
-        SessionFactory sessionFactory =
-        new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
-        Session session = sessionFactory.openSession();
-       
-        try {
-       
-            
-            session.beginTransaction();
-       // Address address = new Address("OMR Road", "Chennai", "TN", "600097");
-        //By using cascade=all option the address need not be saved explicitly when the student object is persisted the address will be automatically saved.
-            //session.save(address);
-       
-      
+          try {
+         TipoPizza tipoPizza = new TipoPizza();
          
-         TipoPizza tipoPizza = (TipoPizza) session.get(TipoPizza.class, 1);
-         
-         if (tipoPizza != null){
-         
-         System.out.println(tipoPizza.toString());
-         
-         }
-        
-        
-        
-       
-        } catch (HibernateException e) {
-        //  System.out.print(e.);
-        } finally {
-        session.close();
+     
+            tipoPizza.update();
+        } catch (Exception ex) {
+            Logger.getLogger(PizzaMDP.class.getName()).log(Level.SEVERE, null, ex);
         }
-        }
-    
+        
+    }
 }

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping>
-  <class name="TipoPizza" table="tipopizza"/>
-  
-   <id name = "id_tipo_pizza" type = "int" column = "id_tipo_pizza" >
-         <generator class="native"/>
+  <class name="entidades.TipoPizza" table="TipoPizza">
+    
+
+
+      <id name="id_tipo_pizza" column="id_tipo_pizza">
+          <generator class="native"/>
       </id>
-      
       
   <property name = "nombre" 
                column = "nombre" type = "string"/>
@@ -14,4 +15,5 @@
   <property name = "descripcionPizza" 
                column = "descripcion" type = "string"/>
     
+</class>
 </hibernate-mapping>

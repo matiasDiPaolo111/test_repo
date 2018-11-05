@@ -8,6 +8,9 @@
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">123456</property>
     
+    <mapping resource="entidades/TipoPizza.hbm.xml"/>
+
+   
     
   </session-factory>
 </hibernate-configuration>
